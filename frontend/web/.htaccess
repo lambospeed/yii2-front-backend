@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    # use mod_rewrite for pretty URL support
+    RewriteEngine On
+
+
+
+    # If a directory or a file exists, use the request directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Otherwise forward the request to index.php
+    RewriteRule . index.php
+</IfModule>
+
+# use index.php as index file
+DirectoryIndex index.php
+
+# ...other settings...
+# Apache 2.4
+Require all granted
+

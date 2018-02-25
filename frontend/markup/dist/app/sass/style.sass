@@ -1,0 +1,1757 @@
+//FOR MEDIA QUERIES
+
+$wide-desktop-width: 1920px
+$af-low-desktop-width: 1800px
+$af-low-desktop-width: 1610px
+$low-desktop-width: 1600px
+$pr-low-desktop-width: 1280px
+$pr-laptop-landscape-width: 1150px
+$laptop-landscape-width: 1024px
+$laptop-width: 768px
+$middle-mobile: 660px
+$mobile-width: 320px
+
+@mixin wide-desktop
+  @media screen and (min-width: #{$wide-desktop-width})
+    @content
+
+@mixin mx-low-desktop
+  @media screen and (max-width: #{$low-desktop-width - 1px})
+    @content
+
+@mixin mn-low-desktop
+  @media screen and (min-width: #{$low-desktop-width})
+    @content
+
+@mixin low-desktop
+  @media screen and (min-width: #{$pr-low-desktop-width}) and (max-width: #{$low-desktop-width - 1px})
+    @content
+
+@mixin pre-low-desktop
+  @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+    @content
+
+@mixin pre-portrait-tablet
+  @media screen and (min-width: #{$laptop-landscape-width}) and (max-width: #{$pr-laptop-landscape-width - 1px})
+    @content
+
+@mixin portrait-tablet
+  @media screen and (min-width: #{$middle-mobile}) and (max-width: #{$laptop-width - 1px})
+    @content
+
+@mixin to-tablet
+  @media screen and (max-width: #{$laptop-landscape-width - 1px})
+    @content
+
+@mixin landscape-tablet
+  @media screen and (max-width: #{$laptop-landscape-width - 1px})
+    @content
+
+@mixin laptop
+  @media screen and (max-width: #{$laptop-width -1px})
+    @content
+
+@mixin laptop-to-low-desktop
+  @media (min-width: #{$laptop-width + 1px}) and (max-width: #{$pr-low-desktop-width - 1px})
+    @content
+
+@mixin pre-mobile
+  @media (min-width: #{$middle-mobile}) and (max-width: #{$laptop-width - 1px})
+    @content
+
+@mixin mobile
+  @media (min-width: #{$mobile-width}) and (max-width: #{$middle-mobile - 1px})
+    @content
+
+
+//BASE COLORS
+$dark-blue: #13243c
+$cyan: #30b6ce
+$base-bg: #f9fcff
+
+$primary-font-color: #1b1d1e
+$lighten-font-color: #848687
+$accent-font-color: #35bef7
+
+$grey-section: #f3f6f8
+
+//GRADIENTS
+$main-gradient: linear-gradient(to right, rgb(76, 224, 144), rgb(72, 217, 81)), linear-gradient(rgb(71, 214, 117), rgb(71, 214, 117))
+$red-gradient: linear-gradient(to right, rgb(254, 61, 1), rgb(255, 96, 0)), linear-gradient(rgb(253, 109, 4), rgb(253, 109, 4))
+
+//SHADOWS
+$green-shadow: 0px 5px 20px 0 rgba(0, 231, 22, 0.4)
+
+//BASE FONTS
+$open-sans: 'Open Sans', sans-serif
+$montserrat: 'Montserrat', sans-serif
+
+
+
+//SIMPLE GRID
+.col-2
+  float: left
+  width: 20%
+.col-3
+  float: left
+  width: 25%
+.col-4
+  float: left
+  width: 33%
+.col-6
+  float: left
+  width: 50%
+.col-12
+  float: left
+  width: 100%
+
+.disclaimer
+  position: relative
+  z-index: 2
+
+.disclaimer:hover
+  cursor: pointer
+
+.disclaimer-popup
+  background-color: #FFF
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  -webkit-border-radius: 6px
+  border-radius: 6px
+  border: 1px solid rgba(0, 0, 0, 0.2)
+  display: none
+  color: #333
+  font-size: 12px
+  padding: 9px 14px 19px
+  position: absolute
+  right: 0
+  bottom: 27px
+  overflow: hidden
+  line-height: 1.4
+  width: 360px
+  z-index: 3
+
+@media screen and (max-width: 399px)
+  .disclaimer-popup
+    right: -15px
+
+.arrow
+  position: absolute
+  background-color: #FFF
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+  border-right: 1px solid rgba(0, 0, 0, 0.2)
+  height: 16px
+  width: 16px
+  top: -18px
+  right: 50px
+  -webkit-transform: rotate(43deg)
+  -ms-transform: rotate(43deg)
+  transform: rotate(43deg)
+  z-index: 4
+  display: none
+
+.wide-wrapper
+  display: flex
+  flex-shrink: 0
+  flex-grow: 0
+  flex-wrap: wrap
+  position: relative
+  width: 83.177%
+  margin: 0 auto
+  &:before
+    content: ''
+    position: absolute
+    width: 120%
+    height: 100%
+    left: -10%
+    top: 0
+    background-color: #f9fcff
+    z-index: -1
+  .disclaimer
+    font-size: 13px
+    position: absolute
+    text-decoration: underline
+    color: #a2adb4
+    right: 0
+    top: 14px
+    &:hover
+      cursor: pointer
+    @include mn-low-desktop
+      right: 25.7%
+    @media screen and (max-width: #{$laptop-width - 1px} )
+      right: 24px
+  @include mx-low-desktop
+    width: 91.328%
+  //@include portrait-tablet
+  @media screen and (min-width: 659px) and (max-width: #{$laptop-width - 1px})
+    width: 100%
+  @include mobile
+    width: 100%
+
+.thin-wrapper
+  position: relative
+  width: 68.75%
+  margin: 0 auto
+  @include mx-low-desktop
+    width: 91.328%
+
+
+.inner-wrapper
+  position: relative
+  width: 82.342%
+  margin: 0 auto
+  @include mx-low-desktop
+    width: 100%
+
+.hamburger
+  display: none
+  margin: 23px 24px 23px 0
+  padding: 0
+  @media screen and (max-width: #{$laptop-width})
+    &-box
+      width: 35px
+      height: 27px
+
+  @include mobile
+    &-box
+      width: 30px
+      height: 22px
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after
+  background-color: #FFF
+  width: 35px
+  @include mobile
+    width: 30px
+
+h1,
+.h1-like
+  font-size: 48px!important
+  font-weight: normal!important
+
+h2,
+.h2-like
+  font-size: 24px!important
+  letter-spacing: .5px
+  font-weight: 600!important
+  @include mobile
+    font-size: 22px!important
+h3
+  font-size: 18px!important
+  letter-spacing: .5px
+  font-weight: 600!important
+
+.base-p
+  font-size: 18px
+  letter-spacing: 0.4px
+  line-height: 26px
+  margin: 16px 0
+
+.popup__content
+  p
+    @extend .base-p
+
+.clear
+  clear: both
+.left
+  float: left
+.right
+  float: right
+.centered-text
+  text-align: center
+
+.base-font
+  font: 14px $open-sans
+
+.white-text
+  color: #FFF
+
+.opened
+  &:after
+    content: ''
+    position: absolute
+    right: 1px
+    top: 25px
+    background: url(../../images/arrow.png) no-repeat
+    width: 13px
+    height: 8px
+    transition: .3s
+    @include low-desktop
+      top: 18px
+      width: 12px
+      height: 6px
+.closed
+  &:after
+    content: ''
+    position: absolute
+    right: 1px
+    top: 25px
+    background: url(../../images/arrow_2.png) no-repeat
+    width: 15px
+    height: 10px
+    @include low-desktop
+      top: 18px
+      width: 13px
+      height: 7.5px
+
+.opened-v--blue
+  &:after
+    content: ''
+    position: absolute
+    right: 1px
+    top: 4px
+    background: url(../../images/arrow-top.png) no-repeat
+    background-size: contain
+    width: 16px
+    height: 12px
+    transition: .3s
+.closed-v--blue
+  &:after
+    content: ''
+    position: absolute
+    right: 1px
+    top: 4px
+    background: url(../../images/arrow-down.png) no-repeat
+    background-size: contain
+    width: 16px
+    height: 12px
+
+
+// CUSTOM STYLES
+strong
+  font-weight: bold
+  font-style: inherit
+
+em
+  font-style: italic
+  font-weight: inherit
+
+body
+  @extend .base-font
+  //background-color: #f9fcff
+  color: $primary-font-color
+  overflow-x: hidden
+.wrapper
+  position: relative
+  width: 100%
+
+header
+  position: relative
+  background-color: $dark-blue
+  width: 100%
+  height: 72px
+
+
+.logo
+  display: block
+  position: absolute
+  background-size: contain
+  background: url(../../images/logo.png) no-repeat
+  box-sizing: border-box
+  height: 39px
+  width: 214px
+  left: 32px
+  top: 17px
+  padding-left: 52px
+  padding-top: 2px
+  font-size: 21px
+  font-weight: 700
+  text-transform: uppercase
+  color: #FFF
+  text-decoration: none
+  line-height: 22px
+
+@media screen and (max-width: #{$middle-mobile - 1} )
+ .logo
+  left: 24px
+
+@include mobile
+  .logo
+    font-size: 17px
+
+.logo .logo--sm
+  display: block
+  text-transform: capitalize
+  color: $lighten-font-color
+  font-size: 11px
+  font-weight: 300
+  line-height: 14px
+
+@media (min-width: 320px) and (max-width: 659px)
+  .logo .logo--sm
+    font-size: 9px
+
+.main-nav
+  display: none
+  @media screen and (max-width: #{$laptop-width})
+    display: none
+    position: absolute
+    right: 0
+    top: 72px
+    width: 100%
+    z-index: 5
+    background-color: rgba(19, 36, 60,.93)
+  li
+    float: left
+    list-style: none
+    margin: 27px 20px 26px
+    a
+      display: block
+      text-transform: uppercase
+      text-decoration: none
+      letter-spacing: 0.8px
+      color: #FFF
+      font-size: 14px
+      font-weight: 600
+      &:hover
+        opacity: .8
+      @media screen and (max-width: #{$laptop-width})
+        line-height: 59px
+    &:nth-child(3)
+      margin-right: 31px
+      @media screen and (max-width: #{$laptop-width})
+        margin-right: 0
+    @media screen and (max-width: #{$laptop-width})
+      float: none
+      text-align: center
+      padding: 0
+      margin: 0
+      box-sizing: border-box
+      &:hover
+        background-color: rgba(19, 36, 60,.99)
+.head-info
+  box-sizing: border-box
+  height: 220px
+  position: relative
+  text-align: center
+  padding-top: 70px
+  color: #FFF
+  @media screen and (min-width: 320px)
+    padding-top: 10px!important
+    height: 180px!important
+    &>.h1-like
+      font-size: 24px!important
+      line-height: 24px!important
+    &:before
+      height: 180px!important
+  @media screen and (min-width: 400px)
+    height: 160px!important
+    &:before
+      height: 160px!important
+  @media screen and (min-width: 420px)
+    height: 140px!important
+    &:before
+      height: 140px!important
+  @media screen and (min-width: 425px)
+    height: 120px!important
+    &:before
+      height: 120px!important
+  @media screen and (min-width: 600px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+  @media screen and (min-width: 660px)
+    height: 140px!important
+    &:before
+      height: 140px!important
+    &>.h1-like
+      font-size: 36px!important
+      line-height: 36px!important
+  @media screen and (min-width: 768px)
+    height: 150px!important
+    &:before
+      height: 150px!important
+  @media screen and (min-width: 800px)
+    height: 130px!important
+    &:before
+      height: 130px!important
+  @media screen and (min-width: 1280px)
+    height: 140px!important
+    &:before
+      height: 140px!important
+    &>.h1-like
+      font-size: 48px!important
+      line-height: 48px!important
+  @media screen and (min-width: 1450px)
+    height: 120px!important
+    &:before
+      height: 120px!important
+  @media screen and (min-width: 1600px)
+    height: 160px!important
+    &:before
+      height: 160px!important
+    &>.h1-like
+      font-size: 72px!important
+      line-height: 72px!important
+  @media screen and (min-width: 1700px)
+    height: 140px!important
+    &:before
+      height: 140px!important
+
+  .h1-like
+    font-weight: bold
+    margin: 0 27px 16px
+    position: relative
+    @include landscape-tablet
+      line-height: 52px
+    @include mobile
+      margin: 0 12px 12px
+      line-height: 38px
+      font-size: 32px
+
+  &::before
+    content: ''
+    position: absolute
+    background: url(../../images/charts.png) no-repeat
+    //background-size: cover
+    background-size: 100% 100%
+    width: 100%
+    height: 219px
+    top: 0
+    left: 0
+  @include wide-desktop
+    &::before
+      background-size: cover
+  @include landscape-tablet
+    &::before
+      height: 250px
+      //background-size: cover
+
+.head-p
+  font-weight: 600
+  position: relative
+  @include mx-low-desktop
+    margin: 16px 54px
+  @include mn-low-desktop
+    margin: 16px 20px
+  &.base-p
+    @media screen and (min-width: #{$middle-mobile - 1px}) and (max-width: #{$laptop-width - 1px})
+      line-height: 22px
+  @include mobile
+    font-size: 14px
+    line-height: 20px
+    margin: 10px 21px
+  @media screen and (min-width: #{$low-desktop-width})
+    margin: 16px 180px
+
+main
+  position: relative
+  float: left
+  width: 74.25%
+  margin-top: 41px
+  margin-right: 32px
+  background-color: #FFF
+  @include pre-low-desktop
+    width: 100%
+    margin-right: 0
+  @include landscape-tablet
+    //margin-bottom: 64px
+
+
+// table
+.table
+  position: relative
+  border: solid 1px #dfdfdf
+.table-head-row
+  align-items: center
+  display: flex
+  border-bottom: 1px solid #dfdfdf
+  height: 61px
+  font-weight: 700
+  letter-spacing: 1.4px
+  text-transform: uppercase
+  @include landscape-tablet
+    display: none
+  .td
+    float: left
+    text-align: left
+    &:nth-child(1)
+      margin-left: 13.71%
+      width: 15.8%
+    &:nth-child(2)
+      width: 13.43%
+    &:nth-child(3)
+      width: 23.60%
+.editors-pick__mark
+  background: url(../../images/editor-pick.png) no-repeat
+  background-size: 100%
+  display: none
+  position: absolute
+  top: 12px
+  left: -11px
+  width: 130px
+  height: 39px
+  @media screen and (min-width: 1024px)
+    display: block
+
+.table-row-button
+  cursor: pointer
+  &:hover
+    border-bottom: 1px solid red!important
+
+.table-row
+  display: flex
+  align-items: center
+  position: relative
+  width: 100%
+  min-height: 213px
+  border-bottom: 1px solid #dfdfdf
+
+  @include landscape-tablet
+    min-height: 256px
+    flex-wrap: wrap
+    padding-bottom: 20px
+    &:nth-child(odd)
+      background-color: #f8fcff
+
+  @include mobile
+    height: inherit
+    &:nth-child(2) > .description > .score-list
+      display: block
+    &:last-child
+      margin-bottom: 50px
+
+.td
+  float: left
+  text-align: center
+.hidden-name
+  color: rgb(131, 135, 148)
+  display: none
+  font-size: 13px
+  letter-spacing: .3px
+  font-weight: 400
+  line-height: normal
+  @include landscape-tablet
+    display: block
+.hidden-name__price
+  text-align: left
+  margin-left: 20%
+  @include mobile
+    margin-left: 40%
+.num
+  width: 8.326%
+  color: #848687
+  font-size: 24px
+  transition: .1s
+  @include pre-portrait-tablet
+    width: 5.326%
+  @include landscape-tablet
+    width: 36px
+    height: 36px
+    background-color: rgb(237, 241, 244)
+    position: absolute
+  @include mobile
+    display: none
+.site
+  position: relative
+  width: 16.14%
+  transition: .1s
+  @include pre-portrait-tablet
+    width: 19.14%
+  @include landscape-tablet
+    margin: 30px 0 30px 36px
+    width: 25%
+  @media (min-width: 659px) and (max-width: 768px)
+    width: 32%
+  @include mobile
+    flex-basis: 60%
+    margin-left: 0
+    margin-bottom: 24px
+
+.site__rating
+  margin-top: 6px
+  @include mobile
+    display: inline-block
+    margin-top: 22px
+    margin-left: 50%
+    margin-right: 20px
+  @media only screen and (max-width: 435px)
+    margin-left: 28% !important
+    margin-right: 25px
+
+.site__reviews
+  font-size: 12px
+  letter-spacing: 0.5px
+  text-transform: uppercase
+  color: $lighten-font-color
+
+  @include mobile
+    position: absolute
+    bottom: 4px
+    right: -60px
+  @media only screen and (max-width: 480px)
+    right: -70px
+@media (min-width: 320px) and (max-width: 659px)
+  .site__logo
+    min-height: 65px
+
+@include low-desktop
+  .table-row > .site > .site__logo > img
+      width: 100%
+
+.product__logo__img
+  width: 191px
+
+.jq-star
+  padding-right: 3px
+
+.score
+  width: 15.55%
+  @include pre-portrait-tablet
+    width: 13.55%
+  @include landscape-tablet
+    width: 18%
+    align-self: flex-start
+    margin-top: 38px
+  @media only screen and (max-width: 855px)
+    width: 16%
+  @media (min-width: 659px) and (max-width: 768px)
+    width: 10%
+  @include mobile
+    flex-basis: 40%
+    margin-top: 33px
+
+.score__value
+  font-size: 40px
+  font-weight: 700
+  line-height: 41.5px
+  @include low-desktop
+    font-size: 30px
+    font-weight: 700
+    line-height: 33.5px
+
+.score__review
+  font-size: 11px
+  letter-spacing: 0.4px
+  text-transform: uppercase
+  color: $accent-font-color
+  text-decoration: none
+
+.description
+  width: 27.037%
+  text-align: left
+  @include landscape-tablet
+    flex-basis: 100%
+    order: 1
+
+.hide-description__btn
+  display: none
+  position: relative
+  text-align: center
+  font-size: 14px
+  letter-spacing: .8px
+  color: $accent-font-color
+  font-family: $montserrat
+  text-transform: uppercase
+  width: 160px
+  margin: 0 auto 20px
+  @include mobile
+    display: block
+  &:hover
+    cursor: pointer
+.score-list
+  list-style: square
+  @include landscape-tablet
+    display: flex
+    flex-wrap: wrap
+  @include mobile
+    display: none
+  li
+    font-size: 15px
+    letter-spacing: 0.3px
+    margin-bottom: 11px
+    margin-left: 55px
+    margin-top: 10px
+    @media (min-width: 659px) and (max-width: 768px)
+      margin-left: 50px
+    @include low-desktop
+      margin-left: 10px
+      font-size: 12px
+    @include landscape-tablet
+      flex-basis: 42%
+    @include mobile
+      flex-basis: 100%
+      margin-left: 19%
+      margin-right: 14%
+.price
+  width: 12.66%
+  font-size: 30px
+  font-weight: 700
+  letter-spacing: 0.6px
+  .price__original
+    color: grey
+    font-size: 15px
+    font-weight: 600
+    text-decoration: line-through
+
+  @include low-desktop
+    font-size: 22.5px
+    letter-spacing: 0.45px
+    width: 14%
+
+  @include landscape-tablet
+    width: 27%
+    align-self: flex-start
+    margin-top: 38px
+  @media (min-width: 659px) and (max-width: 768px)
+    width: 22%
+  @include mobile
+    flex-basis: 100%
+    margin-top: 0
+.month-sup
+  font-size: 14px
+  color: $lighten-font-color
+  @include low-desktop
+    font-size: 11px
+  @media (min-width: 659px) and (max-width: 768px)
+    display: none
+
+.button-wpr
+  width: 22.287%
+  position: relative
+  display: flex
+  flex-wrap: wrap
+  flex-shrink: 0
+  justify-content: center
+  @include pre-portrait-tablet
+    width: 23.287%
+  @media (min-width: 659px) and (max-width: 768px)
+    width: 29%
+  @include low-desktop
+    width: 16.715%
+  @include mobile
+    flex-basis: 100%
+    flex-direction: column
+  .note--free
+    position: relative
+    font-size: 12px!important
+    letter-spacing: 0.5px
+    text-transform: uppercase
+    color: black
+    margin-top: -20px
+    margin-bottom: 12px
+    flex-basis: 100%
+    @include low-desktop
+      font-size: 10px
+      letter-spacing: 0.375px
+      margin-top: -15px
+      margin-bottom: 9px
+    @include landscape-tablet
+      margin-top: 16px
+      margin-bottom: 0
+      align-self: center
+      order: 1
+    @include mobile
+      order: 0
+      margin-bottom: 12px
+.visit-button
+  box-sizing: border-box
+  position: relative
+  display: inline-block
+  font-size: 18px
+  color: #FFF
+  height: 56px
+  line-height: 54px
+  letter-spacing: 1.1px
+  padding: 0 41px 0 46px
+  border-radius: 6px
+  background-color: #f7841e
+  text-decoration: none
+  text-transform: uppercase
+  text-align: center
+  font-weight: 600
+  flex-shrink: 0
+  flex-grow: 0
+  @include low-desktop
+    font-size: 13.5px
+    height: 42px
+    line-height: 40.5px
+    letter-spacing: 0.825px
+    padding: 0 31px 0 35px
+    border-radius: 6px
+  @include laptop-to-low-desktop
+    padding: 0 21px 0 25px
+  @include mobile
+    width: 296px
+    margin: 5px auto 26px
+  &:hover
+    opacity: .9
+    cursor: pointer
+  &:after
+    height: 13px
+    width: 8px
+    font-size: 24px
+    position: relative
+    padding-left: 10px
+    color: #FFF
+
+.s-main > section a
+  @extend .visit-button
+
+.side-block
+  position: relative
+  float: left
+  width: calc(100% - 74.44% - 32px)
+  @include pre-low-desktop
+    display: flex
+    float: none
+    clear: both
+    width: 100%
+    padding: 0 85px
+    box-sizing: border-box
+    justify-content: space-around
+    order: 1
+  @include pre-low-desktop
+    padding: 0
+  @include mobile
+    background-color: #FFF
+  @media screen and (max-width: 1090px)
+    flex-wrap: wrap
+
+  aside
+    position: relative
+    background-color: #FFF
+    border: solid 1px #dfdfdf
+    box-sizing: border-box
+    margin-top: 41px
+    padding: 0 23px
+    width: 100%
+    @include pre-low-desktop
+      width: 470px
+      min-height: 335px
+      margin-top: 0
+      margin-bottom: 64px
+    @include landscape-tablet
+      margin-bottom: 50px
+    @include mobile
+      width: 100%
+      &:nth-child(1)
+        margin-bottom: 34px
+        border-top: none
+      &:nth-child(2)
+        border-top: none
+        margin-bottom: 0
+
+.side-block aside:nth-child(2)
+  margin-top: 24px
+@media screen and (max-width: 1599px)
+  .side-block aside:nth-child(2)
+    margin-top: 0
+@media screen and (min-width: 1280px)
+  .side-block aside
+    margin-bottom: 24px
+@media screen and (min-width: 1024px) and (max-width: 1150px)
+  .side-block aside
+    width: 440px
+
+@media (min-width: 320px) and (max-width: 659px)
+  .faq
+    border-bottom: none !important
+  .faq .aside__item:last-child
+    border-bottom: solid 1px #dfdfdf
+
+.how-score
+  margin-top: 24px
+  @include mx-low-desktop
+    min-height: 335px
+
+.aside__title
+  font-size: 17px
+  font-weight: 700
+  padding: 19px 0
+  text-transform: uppercase
+  color: $accent-font-color
+  border-bottom: solid 1px #dfdfdf
+  @include low-desktop
+    font-size: 14px
+    padding: 15px 0
+
+.aside__item
+  border-bottom: solid 1px #dfdfdf
+  &:last-child
+    border: none
+  &:hover
+    cursor: pointer
+
+.aside-item__name
+  position: relative
+  font-size: 16px
+  font-weight: 600
+  letter-spacing: 0.3px
+  padding: 16px 16px 16px 0
+  @include low-desktop
+    font-size: 12px
+    letter-spacing: 0.3px
+    padding: 12px 10px 12px 0
+
+.aside-item__text
+  display: none
+  font-size: 15px
+  letter-spacing: 0.3px
+  line-height: 22px
+  color: $lighten-font-color
+  margin-bottom: 15px
+.aside-score__ul
+  list-style-image: url("../../images/check.png")
+  font-size: 16px
+  margin-left: 25px
+  margin-bottom: 15px
+  li
+    padding: 7px 0 7px 15px
+
+.colored-section
+  color: #FFF
+  display: flex
+  flex-direction: row
+  align-items: flex-start
+  justify-content: space-between
+  margin: 64px 0 0
+  padding: 0 8.829%
+  position: relative
+  p
+    @extend .base-p
+  @include mx-low-desktop
+    padding: 0
+  @include landscape-tablet
+    flex-direction: column
+  @media screen and (min-width: 659px) and (max-width: 767px)
+    margin: 0  4.336%
+  @include mobile
+    margin-top: 0
+    margin-bottom: 0
+  &:before
+    content: ''
+    background-color: $cyan
+    position: absolute
+    width: 120vw
+    height: 100%
+    top: 0
+    left: 0
+    transform: translateX(-20vw)
+
+  article
+    position: relative
+    width: 43%
+    margin: 54px 39px
+    &:before
+      content: ''
+      position: absolute
+      top: 3px
+      left: -70px
+      background-image: url(../../images/question.png)
+      width: 48px
+      height: 74px
+      @include mobile
+        left: 2px
+    @include mx-low-desktop
+      margin: 56px 39px 56px 69px
+    @include landscape-tablet
+      margin: 56px 39px 49px 85px
+      width: 88.5%
+      &:nth-child(2)
+        margin-top: 0
+    @include mobile
+      margin: 56px 27px 49px
+      &:nth-child(1)
+        margin-bottom: 46px
+.base-section
+  margin: 64px 0
+  padding: 0 8.829%
+  @include mx-low-desktop
+    padding: 0
+  @media screen and (min-width: 659px) and (max-width: 767px)
+    margin:  64px 4.336%
+  @include mobile
+    margin: 41px 27px
+  p
+    color: $lighten-font-color
+    @extend .base-p
+.comments__wrapper
+  background-color: #FFF
+
+.comments
+  width: 985px
+  margin: 0 auto
+  padding: 48px 0 38px
+  @media screen and (max-width: 1279px)
+    width: 90%
+    padding: 41px 0 0
+
+footer
+  color: $lighten-font-color
+  background-color: $dark-blue
+  margin: 30px 0 0
+  padding: 50px 0 30px
+  .thin-wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.bottom-disclaimer
+  display: flex
+  box-sizing: border-box
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  height: 0
+  width: 100%
+  @media screen and (max-width: 539px)
+    margin: 50px 0 50px
+  @media screen and (min-width: 540px) and (max-width: 767px)
+    margin: 40px 0 40px
+  @media screen and (min-width: 768px) and (max-width: 1023px)
+    margin: 20px 0 20px
+  @include mx-low-desktop
+    padding: 0
+
+.socials
+  display: flex
+  box-sizing: border-box
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  margin: 40px 0 0
+  padding: 0 75px
+  width: 100%
+  @include mx-low-desktop
+    padding: 0
+  @media screen and (max-width: 768px)
+    width: 205px
+    &>.line
+      display: none
+
+.social-item
+  flex-shrink: 0
+  width: 41px
+  height: 41px
+  border-radius: 21px
+  border: solid 1px rgba(255,255,255, .2)
+  margin: 0 10px
+  background: no-repeat center
+.twitter
+  margin-left: 17px
+.g-plus
+  margin-right: 17px
+.nav-anchors
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin: 27px 0
+  @include mobile
+    width: 300px
+  a
+    color: $lighten-font-color
+    text-decoration: none
+    text-transform: uppercase
+    font-weight: 600
+.line
+  height: 1px
+  background-color: rgba(255,255,255, .2)
+  width: 100%
+.copyright
+  @include mobile
+    text-align: center
+    font-size: 12px
+
+  //SECOND PAGE
+.head-info-thin
+  box-sizing: border-box
+  height: 139px
+  position: relative
+  padding: 40px 13.958% 0
+  color: #FFF
+
+  @media screen and (min-width: 320px)
+    padding-top: 10px!important
+    height: 80px!important
+    &>.h1-like
+      font-size: 24px!important
+      line-height: 24px!important
+    &:before
+      height: 80px!important
+  @media screen and (min-width: 400px)
+    height: 80px!important
+    &:before
+      height: 80px!important
+  @media screen and (min-width: 420px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+  @media screen and (min-width: 425px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+  @media screen and (min-width: 600px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+  @media screen and (min-width: 660px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+    &>.h1-like
+      font-size: 36px!important
+      line-height: 36px!important
+  @media screen and (min-width: 768px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+  @media screen and (min-width: 800px)
+    height: 100px!important
+    &:before
+      height: 100px!important
+  @media screen and (min-width: 1280px)
+    height: 110px!important
+    &:before
+      height: 110px!important
+    &>.h1-like
+      font-size: 48px!important
+      line-height: 48px!important
+  @media screen and (min-width: 1450px)
+    height: 120px!important
+    &:before
+      height: 120px!important
+  @media screen and (min-width: 1600px)
+    height: 160px!important
+    &:before
+      height: 160px!important
+    &>.h1-like
+      font-size: 72px!important
+      line-height: 72px!important
+  @media screen and (min-width: 1700px)
+    height: 140px!important
+    &:before
+      height: 140px!important
+
+
+
+  @media screen and (min-width: #{$pr-low-desktop-width}) and (max-width: #{$af-low-desktop-width})
+    //padding-left: calc((100% - 770px + 370px + 31px)/2)
+  //padding-right: calc((100% - (770px + 370px + 31px))/2)
+  @include mx-low-desktop
+    padding-left: 54px
+    padding-right: 54px
+  @media screen and (max-width: #{$laptop-landscape-width - 1px})
+    padding-left: 32px
+    padding-right: 32px
+  .h1-like
+    font-weight: bold
+    position: relative
+    font-size: 28px
+    letter-spacing: .6px
+    @include mobile
+      text-align: center
+  &::before
+    content: ''
+    position: absolute
+    background: url(../../images/charts.png) no-repeat center
+    background-size: 100% 100%
+    width: 100%
+    height: 139px
+    top: 0
+    left: 0
+    @include mobile
+      height: 128px
+  @include wide-desktop
+    &::before
+      background-size: cover
+  @include mobile
+    height: 128px
+    padding: 36.5px 45px 0
+    &::before
+      height: 128px
+
+.back-reviews_btn
+  display: inline-block
+  position: relative
+  font-size: 13px
+  letter-spacing: .5px
+  color: $accent-font-color
+  text-transform: uppercase
+  font-weight: 600
+  margin-bottom: 5px
+  padding-left: 18px
+  text-decoration: none
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    top: 1px
+    background: url(../../images/arrow-left.png) no-repeat
+    background-size: contain
+    width: 12px
+    height: 14px
+  &:hover
+    cursor: pointer
+  @include mobile
+    display: none
+.s-wide-wrapper
+  position: relative
+  width: calc(100% - 13.958% * 2)
+  margin: 0 auto
+  .disclaimer
+    font-size: 13px
+    position: absolute
+    text-decoration: underline
+    color: #a2adb4
+    right: 0
+    top: 14px
+    @media screen and (max-width: 659px )
+      right: 21px
+  @media screen and (min-width: #{$pr-low-desktop-width}) and (max-width: #{$af-low-desktop-width})
+    width: calc(770px + 370px + 31px)
+  @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+    width: calc(100% - 108px)
+  @media screen and (max-width: #{$laptop-landscape-width - 1px})
+    width: calc(100% - 64px)
+  @media screen and (max-width: 659px)
+    width: 100%
+    margin: 0
+    padding: 0 21px
+    box-sizing: border-box
+
+    .side-block
+      width: 100%
+  .side-block
+    float: left
+    width: 26.948%
+    @media screen and (min-width: #{$pr-low-desktop-width}) and (max-width: #{$af-low-desktop-width})
+      width: 370px
+      clear: none
+      flex-wrap: wrap
+      padding: 0
+    @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+      width: 100%
+      float: none
+      display: flex
+      flex-direction: column
+      align-items: center
+
+    aside
+      //@include mobile
+      //  width: 100%
+      //  border-bottom: none
+      //  border-right: none
+      //  border-left: none
+      //  padding: 0
+      @media screen and (min-width: #{$pr-low-desktop-width}) and (max-width: #{$af-low-desktop-width})
+        width: 370px
+        min-height: inherit
+      &:first-child
+        margin-top: 41px
+        @media screen and (min-width: 660px) and (max-width: #{$pr-low-desktop-width - 1px})
+          margin-top: 41px
+          margin-bottom: 41px
+          padding-left: 0
+          padding-right: 0
+        @media screen and (max-width: 500px)
+          margin: 0
+          width: 100%
+        @media screen and (min-width: 400px) and (max-width: 659px)
+          border-top: solid 1px #dfdfdf
+        @media screen and (max-width: 399px)
+          width: 100%
+          border-bottom: none
+          border-right: none
+          border-left: none
+          padding: 0
+      &:nth-child(2)
+        @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+          min-height: inherit
+          width: 800px
+          border-left: none
+          border-right: none
+          border-bottom: none
+        @media screen and (max-width: 855px)
+          width: 670px
+        @media screen and (max-width: 659px)
+          width: 100%
+          border-bottom: none
+          border-right: none
+          border-left: none
+          padding: 0
+      @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+        width: 370px
+        flex-shrink: 0
+        flex-grow: 0
+
+.top-items
+  .aside__title
+    flex-basis: 100%
+    justify-content: space-around
+    @media screen and (max-width: 659px)
+      text-align: left !important
+    @media screen and (min-width: 660px) and (max-width: #{$pr-low-desktop-width - 1px})
+      border-bottom: none
+      //margin-top: 48px
+      padding: 48px 0
+      height: 16px
+    //@include low-desktop
+    //  border-bottom: none
+    //  padding: 36px 0
+    //  height: 12px
+  @include mx-low-desktop
+    display: flex
+    flex-wrap: wrap
+.top-item
+  .score__review
+    display: none
+  @include mobile
+    .score__value > span
+      font-size: 12px
+    &:last-child
+      border-bottom: none
+  @media screen and (min-width: 660px) and (max-width: #{$pr-low-desktop-width - 1px})
+    flex-basis: 25%
+    flex-direction: column
+    flex-wrap: wrap
+    align-content: center
+    justify-content: space-around
+    height: 112px !important
+    border-bottom: none !important
+    .score__review
+      display: block
+    &.hide-sm
+      display: none
+    .hide-param
+      display: none
+  @media screen and (max-width: 659px)
+    a
+      margin: 0
+.s-main
+  float: left
+  width: calc(100% - 39.5px - 26.948%)
+  margin-top: 41px
+  margin-right: 37.5px
+  @media screen and (min-width: #{$pr-low-desktop-width}) and (max-width: #{$af-low-desktop-width})
+    width: 770px
+    margin-right: 31px
+  @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+    width: 100%
+    margin-right: 0
+  & > div.center
+    @media screen and (min-width: #{$pr-low-desktop-width})
+      margin-top: 30px
+  & > div > a.buy-product__btn
+    @media screen and (max-width: #{$pr-low-desktop-width - 1px})
+      display: none!important
+  &>div>ul
+    list-style: inherit
+    margin-left: 97px
+    @extend .grey__p
+    @include mobile
+      margin-left: 47px
+  &>section
+    display: flex
+    flex-basis: 100%
+    align-items: center
+    flex-direction: column
+    justify-content: center
+    padding: 32px 0
+    box-sizing: border-box
+    background-color: #f2f6f9
+    margin: 37px 0 40px 0 !important
+    &>h2
+      @include mobile
+        text-align: center
+
+    a
+      margin-top: 14px
+      @include mobile
+        width: 278px
+        margin-left: 0
+        margin-right: 0
+        padding: 0
+    @include mobile
+      background-color: transparent
+      //text-align: center
+      &:before
+        content: ''
+        position: absolute
+        width: 120%
+        height: 100%
+        top: 0
+        left: -10%
+        z-index: -1
+        background-color: #f2f6f9
+  p
+    @extend .grey__p
+    //margin: 10px 25px
+    @include mobile
+      font-size: 16px
+      letter-spacing: .3px
+      line-height: 24px
+  section
+    position: relative
+    margin: 30px 0 0
+    background-color: #f2f6f9
+    padding: 16px 30px
+    @media screen and (max-width: 659px)
+      padding: 16px 0
+    h2
+      @include mobile
+        font-size: 24px !important
+    h6
+      font-size: 14px
+      font-family: $open-sans
+      letter-spacing: .8px
+      color: #6a7c87
+      text-transform: uppercase
+      margin-bottom: 8px
+
+.grey__p
+  @extend .base-p
+  //color: #848687
+  @media screen and (max-width: 768px)
+    font-size: 16px
+.full-info-block
+  box-sizing: border-box
+  padding: 0 24px
+  border: solid 1px #dfdfdf
+  &>section
+    padding: 16px 20px
+    @include mobile
+      padding: 19px 20px 31px
+    ul
+      position: relative
+      flex-wrap: wrap
+      display: flex
+      list-style-image: url("../../images/check.png")
+      justify-content: space-between
+      &>li
+        //display: inline-flex
+        font-size: 15px
+        color: #1b1d1e
+        line-height: 24px
+        letter-spacing: .3px
+        margin-left: 21px
+        padding-left: 5px
+        flex-basis: 46%
+        &:nth-child(odd)
+          float: right
+        @media screen and (max-width: $pr-low-desktop-width)
+          line-height: 22px
+        @media screen and (max-width: $laptop-width)
+          line-height: 20px
+        @media screen and (min-width: $laptop-width) and (max-width: 890px)
+          flex-basis: 44%
+        //@media screen and (max-width: 778px) and (max-width: 890px)
+        //  flex-basis: 45%
+        @media screen and (max-width: $laptop-width - 1px)
+          line-height: 20px
+          flex-basis: 100%
+          margin-bottom: 12px
+  div
+    &:first-child
+      @include mobile
+        text-align: center
+      img
+        float: left
+        margin-top: 23px
+        @include mobile
+          float: none
+    &:last-child
+      align-items: center
+      display: flex
+      position: relative
+      justify-content: space-between
+      @include mobile
+        flex-wrap: wrap
+      p
+        position: relative
+        font-size: 16px
+        font-weight: 700
+        letter-spacing: 0.3px
+        padding: 16px 20px 16px 43px
+        color: #000
+        width: 73%
+        @include mobile
+          line-height: 22px
+          width: 100%
+        &:before
+          position: absolute
+          content: ''
+          width: 24px
+          height: 24px
+          background-image: url(../../images/info.png)
+          left: 5px
+          top: 50%
+          transform: translateY(-50%)
+      a
+        @extend .visit-button
+        width: 177px
+        font-size: 17px
+        padding: 0 33px 0 35px
+        margin: 32px 0
+        @include mobile
+          //width: 272px
+          width: 228px
+          padding: 0
+          margin-top: 0
+          margin-left: auto
+          margin-right: auto
+    &+p
+      display: block
+      margin-left: 220px
+      margin-right: 32px
+      min-height: 76px
+      @include mobile
+        margin: 31px 0 0 0
+        min-height: 0
+  p
+    @extend .grey__p
+.plain-text-block
+  margin-top: 30px
+  p
+    @extend .grey__p
+  hr
+    border: 0
+    border-top: 1px solid rgb(223, 223, 223)
+    display: block
+    height: 1px
+    margin: 29px 0 31px
+
+@media screen and (min-width: 660px) and (max-width: 1279px)
+  .featured-prod .aside__title
+    text-align: center
+
+@media screen and (min-width: 660px) and (max-width: 1279px)
+  .top-items .aside__title
+    text-align: center
+
+.featured-item
+  height: 300px
+  display: flex
+  flex-wrap: wrap
+  flex-grow: 0
+  flex-shrink: 0
+  justify-content: center
+  align-items: center
+  text-align: center
+  .product__logo
+    flex-basis: 100%
+.buy-product__btn
+  display: block
+  width: 262px
+  height: 52px
+  border-radius: 6px
+  background-color: #fd6d04
+  font-size: 18px
+  color: #FFF
+  letter-spacing: 1.1px
+  text-align: center
+  font-weight: 600
+  text-transform: uppercase
+  text-decoration: none
+  line-height: 52px
+  flex-basis: inherit
+  &:hover
+    cursor: pointer
+    opacity: .8
+.top-item
+  display: flex
+  align-items: center
+  justify-content: space-between
+  height: 80px
+  border-bottom: solid 1px #dfdfdf
+  width: 100%
+  .score__value
+    font-size: 24px
+    line-height: 24px
+    text-align: center
+    >span
+      display: block
+      color: rgb(131, 135, 148)
+      //display: none
+      font-size: 13px
+      letter-spacing: .3px
+      font-weight: 400
+      line-height: normal
+    text-transform: capitalize
+.product__rating
+  flex-basis: 100%
+  text-align: center
+  margin-bottom: 32px
+.product__price
+  font-size: 30px
+  font-weight: 700
+  letter-spacing: 0.6px
+  flex-basis: 100%
+  text-align: center
+
+  .product__price__original
+    font-size: 15px
+    font-weight: 600
+    text-decoration: line-through
+    color: grey
+
+  @include landscape-tablet
+    width: 27%
+    align-self: flex-start
+    margin-top: 38px
+  @media (min-width: 659px) and (max-width: 768px)
+    width: 22%
+  @include mobile
+    flex-basis: 100%
+    margin-top: 0
+.top-site
+  width: 111px
+  height: 42px
+  background-size: 100% auto
+  background-position: center center
+  background-repeat: no-repeat
+
+.visit-button--sm
+  @extend .visit-button
+  font-size: 13px
+  height: 36px
+  line-height: 36px
+  padding: 0 11px
+  width: 93px
+  &:after
+    display: none
+
+.product__bottom-yellow-block
+  margin-top: 10px
+  padding-top: 10px
+  background-color: #fffff0
+  div
+    padding: 10px
+    p
+      font-size: 14px
+
+.product__bottom-credit-block
+  margin-bottom: 10px
+  padding: 10px
+  font-style: italic
+
+.cookie-law
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  padding: 12px
+  color: white
+  background-color: black
+  z-index: 1000
+  overflow: auto
+  opacity: .60
+
+  .cookie-law__left
+    float: left
+    text-align: left
+
+    a
+      color: white
+
+  .cookie-law__right
+    float: right
+    text-align: right
+    width: 100px
+    padding-right: 30px
+
+    button
+      opacity: 1.0
+      color: black
+
+//Media for mobiles

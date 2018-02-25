@@ -1,0 +1,5 @@
+.hidden{display:none;}
+.site-error{height:100%;}
+.thin-wrapper > ul > li{padding-left:10px;padding-right:10px;}
+.popup__content{overflow-y:scroll;max-height:400px;}
+.center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;justify-content:center;text-align:center;}
