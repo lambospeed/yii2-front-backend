@@ -77,7 +77,7 @@ $this->title = $model->title;
     </div>
 
     <div class="side-block">
-        <?= FeaturedWidget::widget(['model' => $model]) ?>
+        <?= FeaturedWidget::widget(['model' => $model, 'priceShow' => $priceShow]) ?>
         <?= TopWidget::widget(['category' => $model->category]) ?>
     </div>
     <div class="clear"></div>

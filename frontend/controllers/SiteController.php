@@ -107,10 +107,10 @@ class SiteController extends Controller
     public function actionReview($title, $code = null)
     {
         /** @var \Yii\caching\MemCache $memcached */
-        $memcached = Yii::$app->get('memcached');
+        // $memcached = Yii::$app->get('memcached');
         
-        $url = Yii::$app->request->getUrl();
-        $output    = $memcached->get($url);
+        // $url = Yii::$app->request->getUrl();
+        // $output    = $memcached->get($url);
         
         if ( ! empty($output)) {
             return $output;
@@ -121,14 +121,15 @@ class SiteController extends Controller
         }
         
         $model = Product::find()->byTitle($title)->active()->one();
-
+        $expansion = models\Expansion::find()->andFilterWhere(['code' => $code])->one();
+        $priceShow = $expansion->price;
         if (empty($model)) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
         
-        $output = $this->render('review', ['model' => $model]);
+        $output = $this->render('review', ['model' => $model, 'priceShow' => $priceShow]);
 
-        $memcached->set($url, $output);
+        // $memcached->set($url, $output);
 
         return $output;
     }
